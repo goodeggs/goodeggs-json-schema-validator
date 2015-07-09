@@ -1,6 +1,6 @@
 expect = require('chai').expect
 require 'mocha-sinon'
-{validateQuery, validateParams, validateBody, validateOther} = require '..'
+{validateQuery, validateParams, validateBody, validateOther} = require '../express'
 express = require 'express'
 crashpad = require 'crashpad'
 namespacedRequest = require 'namespaced-request'

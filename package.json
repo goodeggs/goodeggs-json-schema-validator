@@ -7,14 +7,15 @@
     "Ben Buckman <ben.buckman@goodeggs.com>"
   ],
   "license": "Private",
-  "main": "index.coffee",
+  "main": "validator/index.coffee",
   "repository": {
     "type": "git",
     "url": "git://github.com/goodeggs/goodeggs-json-schema-validator.git"
   },
   "dependencies": {
     "boom": "^2.8.0",
-    "tv4": "^1.1.12"
+    "tv4": "^1.1.12",
+    "tv4-formats": "^1.0.1"
   },
   "devDependencies": {
     "body-parser": "^1.13.2",
