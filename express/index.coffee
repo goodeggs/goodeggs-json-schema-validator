@@ -2,7 +2,7 @@
 express middleware to validate requests.
 ###
 
-tv4 = require 'tv4'
+validator = require '../validator'
 boom = require 'boom'
 
 # validate querystring params.
@@ -27,7 +27,7 @@ _validate = (obj, key, schema = {}, options = {}, next) ->
   options.banUnknownProperties ?= false
   options.checkRecursive ?= false
 
-  result = tv4.validateResult obj, schema, options.checkRecursive, options.banUnknownProperties
+  result = validator.validateResult obj, schema, options.checkRecursive, options.banUnknownProperties
   if result.valid
     next()
   else
