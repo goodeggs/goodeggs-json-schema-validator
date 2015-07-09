@@ -6,7 +6,7 @@ crashpad = require 'crashpad'
 namespacedRequest = require 'namespaced-request'
 bodyParser = require 'body-parser'
 
-describe 'express-json-schema-validator', ->
+describe 'goodeggs-json-schema-validator', ->
   setupServer = (router) ->
     before (done) ->
       @app = express()

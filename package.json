@@ -1,7 +1,7 @@
 {
-  "name": "express-json-schema-validator",
+  "name": "goodeggs-json-schema-validator",
   "version": "0.1.0",
-  "description": "Express JSON Schema Validator",
+  "description": "Good Eggs JSON Schema Validator",
   "author": "Good Eggs <open-source@goodeggs.com>",
   "contributors": [
     "Ben Buckman <ben.buckman@goodeggs.com>"
@@ -14,10 +14,10 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/goodeggs/express-json-schema-validator.git"
+    "url": "git://github.com/goodeggs/goodeggs-json-schema-validator.git"
   },
-  "homepage": "https://github.com/goodeggs/express-json-schema-validator",
-  "bugs": "https://github.com/goodeggs/express-json-schema-validator/issues",
+  "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",
+  "bugs": "https://github.com/goodeggs/goodeggs-json-schema-validator/issues",
   "dependencies": {
     "boom": "^2.8.0",
     "tv4": "^1.1.12"
