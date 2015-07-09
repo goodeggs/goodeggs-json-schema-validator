@@ -15,8 +15,22 @@ npm install goodeggs-json-schema-validator
 
 ## Common schema add-ons
 
-_Coming soon_
+Adds support for these formats:
 
+objectid
+date (YYYY-MM-DD)
+date-time (for example, 2014-05-02T12:59:29+00:00)
+email
+uri
+url
+credit-card-number
+duration (for example, P1DT12H for 1.5 days)
+
+Simply include the format in your schema:
+
+```json
+{"type": "string", "format": "date"}
+```
 
 ## Express Validation
 
