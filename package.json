@@ -37,7 +37,6 @@
   "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",
   "bugs": "https://github.com/goodeggs/goodeggs-json-schema-validator/issues",
   "publishConfig": {
-    "registry": "https://goodeggs.registry.nodejitsu.com/",
-    "always-auth": true
+    "registry": "https://registry.npmjs.org/"
   }
 }
