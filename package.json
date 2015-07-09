@@ -18,12 +18,19 @@
   },
   "homepage": "https://github.com/goodeggs/express-json-schema-validator",
   "bugs": "https://github.com/goodeggs/express-json-schema-validator/issues",
-  "dependencies": {},
+  "dependencies": {
+    "boom": "^2.8.0",
+    "tv4": "^1.1.12"
+  },
   "devDependencies": {
-    "coffee-script": ">=1.9.x",
-    "mocha": "~2.x.x",
+    "body-parser": "^1.13.2",
     "chai": "~2.x.x",
-    "mocha-sinon": "~1.x.x"
+    "coffee-script": ">=1.9.x",
+    "crashpad": "^1.2.4",
+    "express": "^4.13.1",
+    "mocha": "~2.x.x",
+    "mocha-sinon": "~1.x.x",
+    "namespaced-request": "^1.3.2"
   },
   "scripts": {
     "compile": "coffee --bare --compile --output lib/ src/",
