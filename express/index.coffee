@@ -1,3 +1,7 @@
+###
+express middleware to validate requests.
+###
+
 tv4 = require 'tv4'
 boom = require 'boom'
 
