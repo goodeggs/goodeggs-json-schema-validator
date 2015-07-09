@@ -1,0 +1,37 @@
+{
+  "name": "express-json-schema-validator",
+  "version": "0.1.0",
+  "description": "Express JSON Schema Validator",
+  "author": "Good Eggs <open-source@goodeggs.com>",
+  "contributors": [
+    "Ben Buckman <ben.buckman@goodeggs.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "express",
+    "json-schema"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodeggs/express-json-schema-validator.git"
+  },
+  "homepage": "https://github.com/goodeggs/express-json-schema-validator",
+  "bugs": "https://github.com/goodeggs/express-json-schema-validator/issues",
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": ">=1.9.x",
+    "mocha": "~2.x.x",
+    "chai": "~2.x.x",
+    "mocha-sinon": "~1.x.x"
+  },
+  "scripts": {
+    "compile": "coffee --bare --compile --output lib/ src/",
+    "prepublish": "npm run compile && npm run test",
+    "pretest": "npm run compile",
+    "test": "mocha"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  }
+}
