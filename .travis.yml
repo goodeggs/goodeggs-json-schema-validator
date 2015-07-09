@@ -1,4 +1,7 @@
 sudo: true
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
+env:
+  global:
+    secure: ZEzTv1Op9rJvlwmqlCftj66asOJVbEeyZv/dAxo44yWdpac06mc4omFWIX+ykyU7sD05RxRX9/46490IR0fyPVrPGjVcHHEwNOWVi1GMLBPD3H3rwYnDmD/DDR2LfIg/QbIzT+qiBEyBh89R/zdlQs/VRWBhwPk4YWMpDzg9m5RpMe5VA4oaJh+vOjXZX/JSm15mklhWC4+RcFr3hsmKUnLgudO/SvXLvFnBaP5B7QXCGy8E+SSzJLz4xMuScaScAbG0ePNBGFIwXxvh/qbLj2cBnjX/xxrK1xLT+4F+NbMUr93o6Tk3/myzopjfedgCvpopxPuQ4Fxg8OlhfyjAZFvakUSOnupdPiZn4uRgNUiRkXFyF/r5jDqIQYgDmvPVjfVT8eYlUbLqh0HKdtHPxiVsczPv6p8bupt54TSzxhFNfcqpHay9dqMCk6iaaoc/RcVENRn9PlpOrGBNAfA+x2XjAI2F4c7XQG/abUePW0LZjxksSzjEJ+xwRzYniMru1F0L/Izh5Vd2v4w2NfJI0wipQ36cMQrfusT/zXQb831Tke+JT47dYfMG74NW5j6CdagoTVEqqZ8AVRWw7/NXJ5SBBlYVkzRrzWLSJRqAXXjTJRZkMkab4TlGd/FM5wp/Dgcf3MSL1qBT3PI7DLJMVNvGagcES+IPX/eEP6eq7vU=  # NPM_AUTH
