@@ -1,6 +1,6 @@
 expect = require('chai').expect
 require 'mocha-sinon'
-{validateQuery, validateParams, validateBody, validateOther} = require '../express'
+{validateRequest, validateResponse} = require '../express'
 express = require 'express'
 crashpad = require 'crashpad'
 namespacedRequest = require 'namespaced-request'
@@ -22,9 +22,9 @@ describe 'goodeggs-json-schema-validator', ->
   before ->
     @request = namespacedRequest("http://127.0.0.1:9001")
 
-  describe 'validateQuery', ->
+  describe 'validate request', ->
     setupServer express.Router().get '/',
-      validateQuery({
+      validateRequest('query', {
         properties:
           'name':
             type: 'string'
@@ -48,9 +48,9 @@ describe 'goodeggs-json-schema-validator', ->
         expect(@response).to.have.property 'statusCode', 200
 
 
-  describe 'validateParams', ->
+  describe 'validate params', ->
     setupServer express.Router().get '/:name',
-      validateParams({
+      validateRequest('params', {
         properties:
           'name':
             type: 'string'
@@ -74,10 +74,10 @@ describe 'goodeggs-json-schema-validator', ->
         expect(@response).to.have.property 'statusCode', 200
 
 
-  describe 'validateBody', ->
+  describe 'validate request body', ->
     setupServer express.Router().post '/',
       bodyParser.json(),
-      validateBody({
+      validateRequest('body', {
         properties:
           'name':
             type: 'string'
@@ -106,13 +106,59 @@ describe 'goodeggs-json-schema-validator', ->
       it 'succeeds', ->
         expect(@response).to.have.property 'statusCode', 200
 
+  describe 'validate response body', ->
+    setupServer express.Router().post '/',
+      bodyParser.json(),
+      (req, res, next) ->
+        res.body = {name: 54}
+        next()
+      validateResponse('body', {
+        properties:
+          'name':
+            type: 'string'
+      }),
+      (req, res) -> res.send('OK')
+
+    describe 'with invalid body', ->
+      beforeEach (done) ->
+        @request.post {
+          url: '/'
+          json: { name: '123' }
+        }, (err, @response) => done err
+
+      it 'fails', ->
+        expect(@response).to.have.property 'statusCode', 400
+        expect(@response.body?.message).to.match /name.*body/i
+
+  describe 'validate response body (when valid)', ->
+    setupServer express.Router().post '/',
+      bodyParser.json(),
+      (req, res, next) ->
+        res.body = {name: 'apple'}
+        next()
+      validateResponse('body', {
+        properties:
+          'name':
+            type: 'string'
+      }),
+      (req, res) -> res.send('OK')
+
+    describe 'with valid body', ->
+      beforeEach (done) ->
+        @request.post {
+          url: '/'
+          json: { name: '123' }
+        }, (err, @response) => done err
+
+      it 'succeeds', ->
+        expect(@response).to.have.property 'statusCode', 200
 
   describe 'options', ->
 
     describe 'banUnknownProperties', ->
       describe 'default (false)', ->
         setupServer express.Router().get '/',
-          validateQuery({
+          validateRequest('query', {
             properties:
               'name': { type: 'string' }
           })
@@ -126,7 +172,7 @@ describe 'goodeggs-json-schema-validator', ->
 
       describe 'true', ->
         setupServer express.Router().get '/',
-          validateQuery({
+          validateRequest('query', {
             properties:
               'name': { type: 'string' }
           }, {

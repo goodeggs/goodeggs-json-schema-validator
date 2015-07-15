@@ -6,28 +6,24 @@ validator = require '../validator'
 boom = require 'boom'
 
 # validate querystring params.
-exports.validateQuery = (schema, options) ->
+exports.validateRequest = (field, schema, options) ->
   return (req, res, next) ->
-    _validate req.query, 'query params', schema, options, next
+    _validate req[field], "req.#{field}", schema, options, next
 
 
 # validate URL parameters.
-exports.validateParams = (schema, options) ->
+exports.validateResponse = (field, schema, options) ->
   return (req, res, next) ->
-    _validate req.params, 'URL params', schema, options, next
-
-
-exports.validateBody = (schema, options) ->
-  return (req, res, next) ->
-    _validate req.body, 'body', schema, options, next
-
+    _validate res[field], "res.#{field}", schema, options, next
 
 _validate = (obj, key, schema = {}, options = {}, next) ->
   schema.type ?= 'object'
   options.banUnknownProperties ?= false
   options.checkRecursive ?= false
 
-  result = validator.validateResult obj, schema, options.checkRecursive, options.banUnknownProperties
+  cleanedObject = JSON.parse JSON.stringify obj # remove undefined, prototype properties, etc.
+
+  result = validator.validateResult cleanedObject, schema, options.checkRecursive, options.banUnknownProperties
   if result.valid
     next()
   else
