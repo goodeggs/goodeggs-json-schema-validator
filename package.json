@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "boom": "^2.8.0",
-    "tv4": "^1.1.12",
-    "tv4-formats": "^1.0.1"
+    "tv4": "^1.1.12"
   },
   "devDependencies": {
     "body-parser": "^1.13.2",
