@@ -1,7 +1,7 @@
 tv4 = require 'tv4'
 
 tv4.addFormat 'objectid', (data) ->
-  if typeof data is 'string' and /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(data)
+  if typeof data is 'string' and /^[a-f\d]{24}$/i.test(data)
     return null
   return "objectid expected"
 
