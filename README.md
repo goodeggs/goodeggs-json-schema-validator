@@ -39,9 +39,8 @@ Recommended to use [Crashpad](https://github.com/goodeggs/crashpad) for passing 
 
 All methods return middleware that can be `use()`d or included in a route chain.
 
-- `validateQuery(schema, options)` validates schema against `req.query`
-- `validateParams(schema, options)` validates schema against `req.params`
-- `validateBody(schema, options)` validates schema against `req.body` (requires [body-parser](https://github.com/expressjs/body-parser))
+- `validateRequest(field, schema, options)` validates schema against property on request object
+- `validateResponse(field, schema, options)` validates schema against property on response object
 
 The `schema` param should be a [JSON Schema](http://json-schema.org/),
 including `properties`, `required`, etc. Its `type` defaults to `object`.
@@ -52,17 +51,20 @@ including `properties`, `required`, etc. Its `type` defaults to `object`.
 Validate URL params:
 
 ```javascript
-var jsonValidator = require('goodeggs-json-schema-validator');
+var expressValidator = require('goodeggs-json-schema-validator/express');
 var crashpad = require('crashpad')
 
 app.use(crashpad());  // for responding with structured errors
 
 app.get('/products/:slug',
-  jsonValidator.validateParams({
-    properties:
-      'slug':
+  expressValidator.validateRequest('params', {
+    type: 'object'
+    properties: {
+      'slug': {
         type: 'string'
         pattern: '^[a-z-]+$'
+      }
+    }
   }),
   function (req, res) {
     // ...
