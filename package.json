@@ -6,15 +6,14 @@
   "contributors": [
     "Ben Buckman <ben.buckman@goodeggs.com>"
   ],
-  "license": "Private",
-  "main": "validator/index.coffee",
+  "license": "MIT",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/goodeggs/goodeggs-json-schema-validator.git"
   },
   "dependencies": {
     "boom": "^2.8.0",
-    "coffee-script": "^1.8.0",
     "tv4": "^1.1.12"
   },
   "devDependencies": {
@@ -28,7 +27,9 @@
     "namespaced-request": "^1.3.2"
   },
   "scripts": {
-    "prepublish": "npm run test",
+    "build": "coffee --bare --output lib/ --compile src/index.coffee && coffee --bare --output lib/express --compile src/express/index.coffee",
+    "pretest": "npm run build",
+    "prepublish": "npm run build",
     "test": "mocha"
   },
   "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",
