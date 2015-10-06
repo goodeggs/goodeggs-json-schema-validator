@@ -51,7 +51,7 @@ including `properties`, `required`, etc. Its `type` defaults to `object`.
 Validate URL params:
 
 ```javascript
-var expressValidator = require('goodeggs-json-schema-validator/express');
+var expressValidator = require('goodeggs-json-schema-validator/lib/express');
 var crashpad = require('crashpad')
 
 app.use(crashpad());  // for responding with structured errors

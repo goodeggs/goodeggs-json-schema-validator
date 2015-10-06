@@ -2,7 +2,7 @@
 express middleware to validate requests.
 ###
 
-validator = require '../validator'
+validator = require '..'
 boom = require 'boom'
 
 # validate querystring params.

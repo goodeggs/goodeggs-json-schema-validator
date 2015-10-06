@@ -1,5 +1,5 @@
 expect = require('chai').expect
-validator = require '..'
+validator = require '../lib'
 
 describe 'formats', ->
   describe 'objectid', ->
