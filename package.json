@@ -6,7 +6,7 @@
   "contributors": [
     "Ben Buckman <ben.buckman@goodeggs.com>"
   ],
-  "license": "Private",
+  "license": "MIT",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
