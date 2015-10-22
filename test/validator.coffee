@@ -43,4 +43,12 @@ describe 'formats', ->
       expect(validator.validate('goodeggs.com', schema)).not.to.be.ok
       expect(validator.error).to.have.property 'message', 'Format validation failed (email expected)'
 
+  describe 'integer', ->
+    it 'validates', ->
+      schema = {type: 'string', format: 'non-negative-integer'}
+      expect(validator.validate('12', schema)).to.be.ok
 
+    it 'throws if invalid', ->
+      schema = {type: 'string', format: 'non-negative-integer'}
+      expect(validator.validate('12.5', schema)).not.to.be.ok
+      expect(validator.error).to.have.property 'message', 'Format validation failed (non negative integer expected)'

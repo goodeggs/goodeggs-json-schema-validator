@@ -24,4 +24,9 @@ tv4.addFormat 'email', (data) ->
     return null
   return "email expected"
 
+tv4.addFormat 'non-negative-integer', (data) ->
+  if typeof data is 'string' and /^[0-9]+$/.test(data)
+    return null
+  return "non negative integer expected"
+
 module.exports = tv4
