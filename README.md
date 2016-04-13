@@ -20,6 +20,7 @@ Adds support for these formats:
 - objectid
 - date (YYYY-MM-DD)
 - date-time (for example, 2014-05-02T12:59:29+00:00)
+- time (HH:mm or HH:mm:ss, e.g. 23:04:20)
 - email
 
 Simply include the format in your schema:
