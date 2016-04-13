@@ -17,6 +17,11 @@ tv4.addFormat 'date', (data) ->
     return null
   return "date, YYYY-MM-DD format, expected"
 
+tv4.addFormat 'time', (data) ->
+  if typeof data is 'string' and /^[0-2][0-9]:[0-5][0-9](:[0-5][0-9])?$/.test(data)
+    return null
+  return "time, HH:mm:ss or HH:mm format, expected"
+
 tv4.addFormat 'email', (data) ->
   # Source: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
   emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
