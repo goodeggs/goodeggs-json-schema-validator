@@ -12,6 +12,13 @@ describe('validator.assertValid()', function () {
     ).to.throw('failed schema validation at /format; format validation failed (objectid expected)');
   });
 
+  it('includes schema title in error if available', function () {
+    const schema = {title: 'Product', type: 'string', format: 'objectid'};
+    expect(
+      () => validator.assertValid('123', schema)
+    ).to.throw('failed "Product" schema validation at /format; format validation failed (objectid expected)');
+  });
+
   it('includes all tv4 error attributes', function () {
     const schema = {type: 'string', format: 'objectid'};
     try {

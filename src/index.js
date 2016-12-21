@@ -1,4 +1,5 @@
 import tv4 from 'tv4';
+import assert from 'assert';
 
 const allowNull = (data, schema) => data === null && (schema.type === 'null' || schema.type.includes('null'));
 
@@ -56,11 +57,16 @@ tv4.addFormat('non-negative-integer', (data, schema) => {
 
 module.exports = tv4;
 module.exports.assertValid = function (data, schema) {
+  assert(data !== undefined, 'data must be defined');
+  assert(typeof schema === 'object', 'schema must be an object');
   const cleanedData = JSON.parse(JSON.stringify(data)); // remove undefined, convert dates to ISO strings, etc
   const {valid, error} = tv4.validateResult(cleanedData, schema, null, true);
   if (!valid) {
     const message = (() => {
-      let result = 'failed schema validation';
+      let result = 'failed';
+      if (schema.title)
+        result += ` "${schema.title}"`;
+      result += ' schema validation';
       if (error.schemaPath.length)
         result += ` at ${error.schemaPath}`;
       result += `; ${error.message.toLowerCase()}`;

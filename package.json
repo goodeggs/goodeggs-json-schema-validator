@@ -58,7 +58,8 @@
       "plugin:flowtype/recommended"
     ],
     "rules": {
-      "lodash/prefer-lodash-typecheck": "off"
+      "lodash/prefer-lodash-typecheck": "off",
+      "no-eq-null": "off"
     },
     "env": {
       "node": true
