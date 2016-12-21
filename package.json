@@ -12,7 +12,7 @@
     "npm": "3.9"
   },
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/goodeggs/goodeggs-json-schema-validator.git"
