@@ -1,16 +1,18 @@
-// TODO: This file was created by bulk-decaffeinate.
-// Sanity-check the conversion and remove this comment.
-import { expect } from 'chai';
+// @flow
+import {describe, it} from 'mocha';
+import {expect} from 'goodeggs-test-helpers/chai';
+
 import validator from '../src';
 
-describe('validator.assertValid()', function() {
-  it('throws error if schema invalid', function() {
+describe('validator.assertValid()', function () {
+  it('throws error if schema invalid', function () {
     const schema = {type: 'string', format: 'objectid'};
-    return expect(
-      () => validator.assertValid('123', schema)).to.throw('failed schema validation at /format; format validation failed (objectid expected)');
+    expect(
+      () => validator.assertValid('123', schema)
+    ).to.throw('failed schema validation at /format; format validation failed (objectid expected)');
   });
 
-  it('includes all tv4 error attributes', function() {
+  it('includes all tv4 error attributes', function () {
     const schema = {type: 'string', format: 'objectid'};
     try {
       validator.assertValid('123', schema);
@@ -26,7 +28,7 @@ describe('validator.assertValid()', function() {
     throw new Error('expected to throw');
   });
 
-  return it('adds "name", "data" and "schema" attributes to error', function() {
+  it('adds "name", "data" and "schema" attributes to error', function () {
     const schema = {type: 'string', format: 'objectid'};
     try {
       validator.assertValid('123', schema);
