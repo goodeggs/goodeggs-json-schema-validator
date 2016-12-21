@@ -1,3 +1,5 @@
+// TODO: This file was created by bulk-decaffeinate.
+// Sanity-check the conversion and remove this comment.
 import tv4 from 'tv4';
 
 const allowNull = (data, schema) => data === null && (schema.type === 'null' || schema.type.includes('null'));
