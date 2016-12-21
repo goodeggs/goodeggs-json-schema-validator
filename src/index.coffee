@@ -50,3 +50,17 @@ tv4.addFormat 'non-negative-integer', (data, schema) ->
   return "non negative integer expected"
 
 module.exports = tv4
+module.exports.assertValid = (data, schema) ->
+  cleanedData = JSON.parse JSON.stringify data # remove undefined, convert dates to ISO strings, etc
+  {valid, error} = tv4.validateResult(cleanedData, schema, null, true)
+  if not valid
+    message = do ->
+      result = "failed schema validation"
+      if error.schemaPath.length
+        result += " at #{error.schemaPath}"
+      result += "; #{error.message.toLowerCase()}"
+    error.name = 'SchemaValidationError'
+    error.message = message
+    error.data = data
+    error.schema = schema
+    throw error

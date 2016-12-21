@@ -1,5 +1,5 @@
 expect = require('chai').expect
-validator = require '../lib'
+validator = require '../src'
 
 describe 'formats', ->
   describe 'objectid', ->
@@ -142,4 +142,3 @@ describe 'formats', ->
       it 'does not check the format if null is an accepted type', ->
         schema = {type: ['string', 'null'], format: 'integer'}
         expect(validator.validate(null, schema)).to.be.ok
-
