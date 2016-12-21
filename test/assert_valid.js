@@ -21,7 +21,6 @@ describe('validator.assertValid()', function () {
       expect(err).to.have.property('code');
       expect(err).to.have.property('dataPath');
       expect(err).to.have.property('schemaPath');
-      expect(err).to.have.property('schemaPath');
       expect(err).to.have.property('subErrors');
       return;
     }
