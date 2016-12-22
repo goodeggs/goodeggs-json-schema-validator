@@ -12,6 +12,13 @@ describe('validator.assertValid()', function () {
     ).to.throw('failed schema validation at /format; format validation failed (objectid expected)');
   });
 
+  it('supports adding a custom error message', function () {
+    const schema = {type: 'string', format: 'objectid'};
+    expect(
+      () => validator.assertValid('123', schema, 'request invalid')
+    ).to.throw('request invalid; failed schema validation at /format; format validation failed (objectid expected)');
+  });
+
   it('includes schema title in error if available', function () {
     const schema = {title: 'Product', type: 'string', format: 'objectid'};
     expect(
