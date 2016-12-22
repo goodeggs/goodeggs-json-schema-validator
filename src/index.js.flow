@@ -1,6 +1,6 @@
 // @flow
 declare module.exports: {
-  assertValid (data: any, schema: Object): void;
+  assertValid (data: any, schema: Object, message?: string): void;
   validate (data: any, schema: Object): boolean;
   validateResult (data: any, schema: Object): {valid: boolean, error: Error, missing: any[]};
   error: Error;
