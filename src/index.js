@@ -73,7 +73,9 @@ module.exports.assertValid = function (data, schema, errorMessage) {
         result += ` "${schema.title}"`;
       result += ' schema validation';
       if (error.schemaPath.length)
-        result += ` at ${error.schemaPath}`;
+        result += ` at schema path ${error.schemaPath}`;
+      if (error.dataPath.length)
+        result += ` for data path ${error.dataPath}`;
       result += `; ${error.message.toLowerCase()}`;
       return result;
     })();

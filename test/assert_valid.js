@@ -9,21 +9,27 @@ describe('validator.assertValid()', function () {
     const schema = {type: 'string', format: 'objectid'};
     expect(
       () => validator.assertValid('123', schema)
-    ).to.throw('failed schema validation at /format; format validation failed (objectid expected)');
+    ).to.throw(
+      'failed schema validation at schema path /format; format validation failed (objectid expected)'
+    );
   });
 
   it('supports adding a custom error message', function () {
     const schema = {type: 'string', format: 'objectid'};
     expect(
       () => validator.assertValid('123', schema, 'request invalid')
-    ).to.throw('request invalid; failed schema validation at /format; format validation failed (objectid expected)');
+    ).to.throw(
+      'request invalid; failed schema validation at schema path /format; format validation failed (objectid expected)'
+    );
   });
 
   it('includes schema title in error if available', function () {
     const schema = {title: 'Product', type: 'string', format: 'objectid'};
     expect(
       () => validator.assertValid('123', schema)
-    ).to.throw('failed "Product" schema validation at /format; format validation failed (objectid expected)');
+    ).to.throw(
+      'failed "Product" schema validation at schema path /format; format validation failed (objectid expected)'
+    );
   });
 
   it('includes all tv4 error attributes', function () {
@@ -52,5 +58,19 @@ describe('validator.assertValid()', function () {
       return;
     }
     throw new Error('expected to throw');
+  });
+
+  it('includes dataPath if available', function () {
+    const schema = {
+      type: 'object',
+      patternProperties: {
+        '^a.*': {type: 'string'},
+      },
+    };
+    expect(
+      () => validator.assertValid({bcd: 'test'}, schema)
+    ).to.throw(
+      'SchemaValidationError: failed schema validation for data path /bcd; unknown property (not in schema)'
+    );
   });
 });
