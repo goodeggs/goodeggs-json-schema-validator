@@ -56,11 +56,11 @@ tv4.addFormat('non-negative-integer', (data, schema) => {
 });
 
 module.exports = tv4;
-module.exports.assertValid = function (data, schema, errorMessage) {
+module.exports.assertValid = function (data, schema, errorMessage, {banUnknownProperties} = {banUnknownProperties: true}) {
   assert(typeof schema === 'object', 'schema must be an object');
   if (errorMessage != null)
     assert(typeof errorMessage === 'string', 'errorMessage must be a string');
-  const {valid, error} = tv4.validateResult(data, schema, null, true);
+  const {valid, error} = tv4.validateResult(data, schema, null, banUnknownProperties);
   if (!valid) {
     const message = (() => {
       let result = '';

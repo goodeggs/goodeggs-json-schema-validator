@@ -14,6 +14,20 @@ describe('validator.assertValid()', function () {
     );
   });
 
+  it('bans unknown properties by default', function () {
+    const schema = {type: 'object'};
+    expect(
+      () => validator.assertValid({foo: 'bar'}, schema)
+    ).to.throw(
+      'failed schema validation for data path /foo; unknown property (not in schema)'
+    );
+  });
+
+  it('can override ban unknown properties', function () {
+    const schema = {type: 'object'};
+    validator.assertValid({foo: 'bar'}, schema, null, {banUnknownProperties: false})
+  });
+
   it('supports adding a custom error message', function () {
     const schema = {type: 'string', format: 'objectid'};
     expect(
