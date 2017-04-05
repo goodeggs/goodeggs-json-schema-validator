@@ -7,10 +7,6 @@
     "Ben Buckman <ben.buckman@goodeggs.com>",
     "Danny Nelson <danny@goodeggs.com>"
   ],
-  "engines": {
-    "node": "^6.9.1",
-    "npm": "3.9"
-  },
   "license": "MIT",
   "main": "index.js",
   "repository": {
