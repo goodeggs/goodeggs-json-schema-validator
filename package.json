@@ -8,7 +8,7 @@
     "Danny Nelson <danny@goodeggs.com>"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/goodeggs/goodeggs-json-schema-validator.git"
@@ -62,9 +62,8 @@
     }
   },
   "scripts": {
-    "build": "rm -rf build/ && npm run build:safe",
-    "build:safe": "babel src -d build && cp package.json src/index.js.flow build/",
-    "postpublish": "npm cache clean",
+    "build": "rm -rf lib && babel src -d lib && cp src/index.js.flow lib",
+    "prepublishOnly": "npm run build",
     "lint": "eslint 'src/**/*.js'  --ignore-path .gitignore",
     "test:mocha": "NODE_ENV=test mocha --compilers=js:babel-register --require=babel-polyfill",
     "test": "npm run lint && flow && npm run test:mocha"
