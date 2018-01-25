@@ -9,9 +9,7 @@
 npm install goodeggs-json-schema-validator
 ```
 
-1. Common JSON schema and [tv4](https://github.com/geraintluff/tv4) add-ons for Good Eggs ecosystem.
-2. Express middleware to validate requests using JSON Schemas.
-
+Common JSON schema and [tv4](https://github.com/geraintluff/tv4) add-ons for Good Eggs ecosystem.
 
 ## Common schema add-ons
 
@@ -28,55 +26,6 @@ Simply include the format in your schema:
 ```json
 {"type": "string", "format": "date"}
 ```
-
-## Express Validation
-
-(Loosely modeled on [express-joi-validator](https://github.com/threadster/express-joi-validator).)
-
-When validation fails, uses [Boom](https://github.com/hapijs/boom) to wrap errors.
-Recommended to use [Crashpad](https://github.com/goodeggs/crashpad) for passing those errors to the client.
-
-### Methods
-
-All methods return middleware that can be `use()`d or included in a route chain.
-
-- `validateRequest(field, schema, options)` validates schema against property on request object
-- `validateResponse(field, schema, options)` validates schema against property on response object
-
-The `schema` param should be a [JSON Schema](http://json-schema.org/),
-including `properties`, `required`, etc. Its `type` defaults to `object`.
-
-
-### Example
-
-Validate URL params:
-
-```javascript
-var expressValidator = require('goodeggs-json-schema-validator/lib/express');
-var crashpad = require('crashpad')
-
-app.use(crashpad());  // for responding with structured errors
-
-app.get('/products/:slug',
-  expressValidator.validateRequest('params', {
-    type: 'object'
-    properties: {
-      'slug': {
-        type: 'string'
-        pattern: '^[a-z-]+$'
-      }
-    }
-  }),
-  function (req, res) {
-    // ...
-  }
-);
-```
-
-If a request is made to `/products/INVALID_123`,
-it will fail with statusCode 400
-and a body containing `message` with a description of the error.
-
 
 ## Contributing
 
