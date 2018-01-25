@@ -1,4 +1,5 @@
 // @flow
+import tv4 from 'tv4';
 import {describe, it} from 'mocha';
 import {expect} from 'goodeggs-test-helpers/chai';
 
@@ -185,5 +186,13 @@ describe('formats', function () {
         expect(validator.validate(null, schema)).to.be.ok();
       });
     });
+  });
+
+  // regression test https://www.pivotaltracker.com/story/show/154646826
+  it('does not overwrite formats when adding global tv4 formats', function () {
+    tv4.addFormat('date-time', () => 'sad panda');
+    const schema = {type: 'string', format: 'date-time'};
+    const date = new Date().toISOString();
+    expect(validator.validate(date, schema)).to.be.ok();
   });
 });
