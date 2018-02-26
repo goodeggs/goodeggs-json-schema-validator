@@ -25,7 +25,7 @@ describe('validator.assertValid()', function () {
 
   it('can override ban unknown properties', function () {
     const schema = {type: 'object'};
-    validator.assertValid({foo: 'bar'}, schema, null, {banUnknownProperties: false})
+    validator.assertValid({foo: 'bar'}, schema, null, {banUnknownProperties: false});
   });
 
   it('supports adding a custom error message', function () {
@@ -86,5 +86,15 @@ describe('validator.assertValid()', function () {
     ).to.throw(
       'SchemaValidationError: failed schema validation for data path /bcd; unknown property (not in schema)'
     );
+  });
+
+  it('allows pattern properties', function () {
+    const schema = {
+      type: 'object',
+      patternProperties: {
+        '^.*': {type: 'string'},
+      },
+    };
+    validator.assertValid({abc: 'test'}, schema);
   });
 });
