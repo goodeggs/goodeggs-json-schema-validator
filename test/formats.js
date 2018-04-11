@@ -1,9 +1,9 @@
 // @flow
 import tv4 from 'tv4';
 import {describe, it} from 'mocha';
-import {expect} from 'goodeggs-test-helpers/chai';
+import {expect} from 'goodeggs-test-helpers';
 
-import validator from '../src';
+import validator from '../src'; // eslint-disable-line goodeggs/import-default
 
 describe('formats', function () {
   describe('objectid', function () {

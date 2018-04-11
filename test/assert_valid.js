@@ -1,8 +1,8 @@
 // @flow
 import {describe, it} from 'mocha';
-import {expect} from 'goodeggs-test-helpers/chai';
+import {expect} from 'goodeggs-test-helpers';
 
-import validator from '../src';
+import validator from '../src'; // eslint-disable-line goodeggs/import-default
 
 describe('validator.assertValid()', function () {
   it('throws error if schema invalid', function () {
@@ -84,7 +84,7 @@ describe('validator.assertValid()', function () {
     expect(
       () => validator.assertValid({bcd: 'test'}, schema)
     ).to.throw(
-      'SchemaValidationError: failed schema validation for data path /bcd; unknown property (not in schema)'
+      'failed schema validation for data path /bcd; unknown property (not in schema)'
     );
   });
 
