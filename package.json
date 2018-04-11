@@ -28,7 +28,7 @@
     "eslint": "^3.10.2",
     "eslint-plugin-flowtype": "^2.25.0",
     "eslint-plugin-goodeggs": "^3.3.2",
-    "eslint-plugin-lodash": "^1.9.4",
+    "eslint-plugin-lodash": "^2.7.0",
     "eslint-plugin-mocha": "^4.7.0",
     "flow-bin": "^0.69.0",
     "goodeggs-test-helpers": "^1.4.0",
