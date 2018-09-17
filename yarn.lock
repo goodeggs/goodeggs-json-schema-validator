@@ -1307,19 +1307,20 @@ eslint-plugin-flowtype@^2.39.1:
   dependencies:
     lodash "^4.15.0"
 
-eslint-plugin-goodeggs@^6.1.0:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-goodeggs/-/eslint-plugin-goodeggs-6.1.1.tgz#dcc7f402b928fe61070eb079262eb018dce5caa8"
+eslint-plugin-goodeggs@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-goodeggs/-/eslint-plugin-goodeggs-7.0.0.tgz#afbf7b1a6453fdbd09489779e268ae989bb9b270"
   dependencies:
     eslint-plugin-flowtype "^2.39.1"
-    eslint-plugin-import "^v2.12.0"
+    eslint-plugin-import "^v2.14.0"
     eslint-plugin-lodash "^2.5.0"
-    eslint-plugin-mocha "^4.11.0"
-    globals "^10.3.0"
+    eslint-plugin-mocha "^5.2.0"
+    eslint-plugin-typescript "^0.12.0"
+    globals "^11.7.0"
 
-eslint-plugin-import@^v2.12.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.12.0.tgz#dad31781292d6664b25317fd049d2e2b2f02205d"
+eslint-plugin-import@^v2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.14.0.tgz#6b17626d2e3e6ad52cfce8807a845d15e22111a8"
   dependencies:
     contains-path "^0.1.0"
     debug "^2.6.8"
@@ -1338,11 +1339,17 @@ eslint-plugin-lodash@^2.5.0:
   dependencies:
     lodash "~4.17.0"
 
-eslint-plugin-mocha@^4.11.0:
-  version "4.12.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-mocha/-/eslint-plugin-mocha-4.12.1.tgz#dbacc543b178b4536ec5b19d7f8e8864d85404bf"
+eslint-plugin-mocha@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mocha/-/eslint-plugin-mocha-5.2.0.tgz#d8786d9fff8cb8b5f6e4b61e40395d6568a5c4e2"
   dependencies:
     ramda "^0.25.0"
+
+eslint-plugin-typescript@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-typescript/-/eslint-plugin-typescript-0.12.0.tgz#e23d58cb27fe28e89fc641a1f20e8d862cb99aef"
+  dependencies:
+    requireindex "~1.1.0"
 
 eslint-scope@3.7.1:
   version "3.7.1"
@@ -1692,10 +1699,6 @@ glob@7.1.2, glob@^7.0.3, glob@^7.0.5, glob@^7.1.2:
     minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
-
-globals@^10.3.0:
-  version "10.4.0"
-  resolved "https://registry.npmjs.org/globals/-/globals-10.4.0.tgz#5c477388b128a9e4c5c5d01c7a2aca68c68b2da7"
 
 globals@^11.1.0:
   version "11.4.0"
@@ -2948,6 +2951,10 @@ require-uncached@^1.0.3:
   dependencies:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
+
+requireindex@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
 
 resolve-from@^1.0.0:
   version "1.0.1"
