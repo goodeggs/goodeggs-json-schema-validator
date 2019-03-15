@@ -1505,9 +1505,9 @@ flatted@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
 
-flow-bin@^0.91.0:
-  version "0.91.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.91.0.tgz#f5c89729f74b2ccbd47df6fbfadbdcc89cc1e478"
+flow-bin@^0.95.0:
+  version "0.95.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.95.0.tgz#2f1d299a35769c0aec3b8fa1b9290ddfba75894d"
 
 for-in@^1.0.1:
   version "1.0.2"
