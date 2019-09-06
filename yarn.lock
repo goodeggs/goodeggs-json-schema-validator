@@ -250,11 +250,11 @@
     js-tokens "^4.0.0"
 
 "@babel/node@^7.5.0":
-  version "7.5.5"
-  resolved "https://registry.npmjs.org/@babel/node/-/node-7.5.5.tgz#5db48a3bcee64d9eda6474f2a0a55b235d0438b5"
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.6.0.tgz#9e78d36d2b3d343e027d3f242d9b5fde1f1adc92"
   dependencies:
-    "@babel/polyfill" "^7.0.0"
-    "@babel/register" "^7.5.5"
+    "@babel/polyfill" "^7.6.0"
+    "@babel/register" "^7.6.0"
     commander "^2.8.1"
     lodash "^4.17.13"
     node-environment-flags "^1.0.5"
@@ -570,9 +570,9 @@
     "@babel/helper-regex" "^7.4.4"
     regexpu-core "^4.5.4"
 
-"@babel/polyfill@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.npmjs.org/@babel/polyfill/-/polyfill-7.4.4.tgz#78801cf3dbe657844eeabf31c1cae3828051e893"
+"@babel/polyfill@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.6.0.tgz#6d89203f8b6cd323e8d946e47774ea35dc0619cc"
   dependencies:
     core-js "^2.6.5"
     regenerator-runtime "^0.13.2"
@@ -639,11 +639,10 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-flow-strip-types" "^7.0.0"
 
-"@babel/register@^7.4.4", "@babel/register@^7.5.5":
-  version "7.5.5"
-  resolved "https://registry.npmjs.org/@babel/register/-/register-7.5.5.tgz#40fe0d474c8c8587b28d6ae18a03eddad3dac3c1"
+"@babel/register@^7.4.4", "@babel/register@^7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.6.0.tgz#76b6f466714680f4becafd45beeb2a7b87431abf"
   dependencies:
-    core-js "^3.0.0"
     find-cache-dir "^2.0.0"
     lodash "^4.17.13"
     mkdirp "^0.5.1"
@@ -1159,10 +1158,6 @@ core-js-compat@^3.1.1:
 core-js@^2.6.5:
   version "2.6.9"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
-
-core-js@^3.0.0:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/core-js/-/core-js-3.2.1.tgz#cd41f38534da6cc59f7db050fe67307de9868b09"
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -2282,11 +2277,7 @@ lodash@4.17.10:
   version "4.17.10"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
-lodash@^4.17.11, lodash@^4.17.5:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-
-lodash@^4.17.13, lodash@^4.17.15:
+lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.5:
   version "4.17.15"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
 
