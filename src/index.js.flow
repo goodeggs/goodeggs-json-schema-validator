@@ -3,5 +3,6 @@ declare module.exports: {
   assertValid (data: any, schema: Object, message?: ?string, options?: {banUnknownProperties?: boolean}): void;
   validate (data: any, schema: Object): boolean;
   validateResult (data: any, schema: Object): {valid: boolean, error: Error, missing: any[]};
+  validateMultiple (data: any, schema: Object): {valid: boolean, errors: Array<Error>, missing: any[]};
   error: Error;
 }
