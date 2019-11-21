@@ -56,10 +56,10 @@
   },
   "scripts": {
     "build": "rm -rf lib && babel src -d lib && cp src/index.js.flow lib",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "yarn run build",
     "lint": "eslint 'src/**/*.js'  --ignore-path .gitignore",
-    "test:mocha": "NODE_ENV=test mocha --compilers=js:@babel/register --require=@babel/polyfill",
-    "test": "npm run lint && flow && npm run test:mocha"
+    "test:mocha": "NODE_ENV=test mocha --require @babel/register",
+    "test": "yarn run lint && yarn run flow && yarn run test:mocha"
   },
   "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",
   "bugs": "https://github.com/goodeggs/goodeggs-json-schema-validator/issues",
