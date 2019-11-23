@@ -318,10 +318,10 @@
     js-tokens "^4.0.0"
 
 "@babel/node@^7.5.0":
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.7.0.tgz#fba73fdaf75ab1a0eaf03923f5f4ce7fa41c9974"
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.7.4.tgz#de1cc9c67b335a19e4f71208554779bc63719f5a"
   dependencies:
-    "@babel/register" "^7.7.0"
+    "@babel/register" "^7.7.4"
     commander "^2.8.1"
     core-js "^3.2.1"
     lodash "^4.17.13"
@@ -705,9 +705,9 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-flow-strip-types" "^7.0.0"
 
-"@babel/register@^7.4.4", "@babel/register@^7.7.0":
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.7.0.tgz#4e23ecf840296ef79c605baaa5c89e1a2426314b"
+"@babel/register@^7.4.4", "@babel/register@^7.7.4":
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.7.4.tgz#45a4956471a9df3b012b747f5781cc084ee8f128"
   dependencies:
     find-cache-dir "^2.0.0"
     lodash "^4.17.13"
