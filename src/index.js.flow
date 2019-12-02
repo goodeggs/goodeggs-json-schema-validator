@@ -1,8 +1,26 @@
 // @flow
-declare module.exports: {
-  assertValid (data: any, schema: Object, message?: ?string, options?: {banUnknownProperties?: boolean}): void;
-  validate (data: any, schema: Object): boolean;
-  validateResult (data: any, schema: Object): {valid: boolean, error: Error, missing: any[]};
-  validateMultiple (data: any, schema: Object): {valid: boolean, errors: Array<Error>, missing: any[]};
-  error: Error;
+class ValidationError extends Error {
+  subErrors: Array<ValidationError>;
+  params: string;
+  dataPath: string;
+  schemaPath: string;
 }
+
+declare module.exports: {
+  assertValid(
+    data: any,
+    schema: Object,
+    message?: ?string,
+    options?: { banUnknownProperties?: boolean }
+  ): void,
+  validate(data: any, schema: Object): boolean,
+  validateResult(
+    data: any,
+    schema: Object
+  ): { valid: boolean, error: ValidationError, missing: any[] },
+  validateMultiple(
+    data: any,
+    schema: Object
+  ): { valid: boolean, errors: Array<ValidationError>, missing: any[] },
+  error: ValidationError
+};
