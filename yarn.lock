@@ -707,8 +707,8 @@
     "@babel/plugin-transform-flow-strip-types" "^7.0.0"
 
 "@babel/register@^7.4.4", "@babel/register@^7.7.7":
-  version "7.7.7"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.7.7.tgz#46910c4d1926b9c6096421b23d1f9e159c1dcee1"
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.9.0.tgz#02464ede57548bddbb5e9f705d263b7c3f43d48b"
   dependencies:
     find-cache-dir "^2.0.0"
     lodash "^4.17.13"
