@@ -842,6 +842,46 @@
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
 
+"@types/chai-as-promised@*", "@types/chai-as-promised@^7.1.3":
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@types/chai-as-promised/-/chai-as-promised-7.1.3.tgz#779166b90fda611963a3adbfd00b339d03b747bd"
+  dependencies:
+    "@types/chai" "*"
+
+"@types/chai-datetime@^0.0.36":
+  version "0.0.36"
+  resolved "https://registry.yarnpkg.com/@types/chai-datetime/-/chai-datetime-0.0.36.tgz#96815c5237c9f387527e869ed08cef3f4ba6da16"
+  dependencies:
+    "@types/chai" "*"
+
+"@types/chai@*", "@types/chai@^4.2.14":
+  version "4.2.14"
+  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.14.tgz#44d2dd0b5de6185089375d976b4ec5caf6861193"
+
+"@types/dirty-chai@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/dirty-chai/-/dirty-chai-2.0.2.tgz#eeac4802329a41ed7815ac0c1a6360335bf77d0c"
+  dependencies:
+    "@types/chai" "*"
+    "@types/chai-as-promised" "*"
+
+"@types/sinon-chai@^3.2.5":
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/@types/sinon-chai/-/sinon-chai-3.2.5.tgz#df21ae57b10757da0b26f512145c065f2ad45c48"
+  dependencies:
+    "@types/chai" "*"
+    "@types/sinon" "*"
+
+"@types/sinon@*", "@types/sinon@^9.0.10":
+  version "9.0.10"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-9.0.10.tgz#7fb9bcb6794262482859cab66d59132fca18fcf7"
+  dependencies:
+    "@types/sinonjs__fake-timers" "*"
+
+"@types/sinonjs__fake-timers@*":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-6.0.2.tgz#3a84cf5ec3249439015e14049bd3161419bf9eae"
+
 acorn-jsx@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.0.1.tgz#32a064fd925429216a09b141102bfdd185fae40e"
@@ -1075,10 +1115,6 @@ chai@4.2.0, chai@>1.9.0:
     get-func-name "^2.0.0"
     pathval "^1.1.0"
     type-detect "^4.0.5"
-
-chaid@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/chaid/-/chaid-1.0.2.tgz#f58e94360528abdaa46acf0b3a5174a06e157750"
 
 chalk@^2.0.0, chalk@^2.1.0, chalk@^2.4.2:
   version "2.4.2"
@@ -1695,14 +1731,19 @@ globals@^11.1.0, globals@^11.7.0:
   version "11.7.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.7.0.tgz#a583faa43055b1aca771914bf68258e2fc125673"
 
-goodeggs-test-helpers@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/goodeggs-test-helpers/-/goodeggs-test-helpers-7.0.0.tgz#8276ccd8f5aa9b407679cd4bfeb891051da32dd7"
+goodeggs-test-helpers@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/goodeggs-test-helpers/-/goodeggs-test-helpers-8.0.1.tgz#69a6ad3c7c7d5e468038dbd0062b63cb107c1942"
   dependencies:
+    "@types/chai" "^4.2.14"
+    "@types/chai-as-promised" "^7.1.3"
+    "@types/chai-datetime" "^0.0.36"
+    "@types/dirty-chai" "^2.0.2"
+    "@types/sinon" "^9.0.10"
+    "@types/sinon-chai" "^3.2.5"
     chai "4.2.0"
     chai-as-promised "7.1.1"
     chai-datetime "1.7.0"
-    chaid "1.0.2"
     date-test-helpers "1.1.2"
     dirty-chai "2.0.1"
     sinon "9.0.3"
