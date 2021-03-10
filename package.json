@@ -24,7 +24,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.4.4",
     "babel-eslint": "^10.0.2",
-    "eslint": "^5.5.0",
+    "eslint": "^7.21.0",
     "eslint-plugin-goodeggs": "^7.3.1",
     "flow-bin": "^0.133.0",
     "goodeggs-test-helpers": "^7.0.0",
