@@ -1928,10 +1928,10 @@ flatted@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
 
-flow-bin@^0.164.0:
-  version "0.164.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.164.0.tgz#dc2a1f1cd59670e7d95320232a673c6e31b11ff3"
-  integrity sha512-cSAA0LLa1SlQ1YmNCYpJ19ES39WYrqjfxX8Oqhbvn6+DET8Cs+EnVkJWHVSkfK8zUupbxvSt7pDoFXePYbcJRA==
+flow-bin@^0.165.1:
+  version "0.165.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.165.1.tgz#55d584b10fe1ed8299fe12be968a9e58810303ee"
+  integrity sha512-AjmvNdY8oFsOb0ZQkYxFj3jnIzqrCIcMeuQCTYbTJuAJoCbz7GszOFzL0Sp2qcK2BcIYWnC4OJbLAQmnDjgI7A==
 
 fs-readdir-recursive@^1.1.0:
   version "1.1.0"
