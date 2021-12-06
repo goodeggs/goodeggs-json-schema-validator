@@ -25,7 +25,7 @@
     "@babel/register": "^7.16.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
-    "eslint-plugin-goodeggs": "^7.4.2",
+    "eslint-plugin-goodeggs": "^13.0.0",
     "flow-bin": "^0.166.1",
     "goodeggs-test-helpers": "^7.0.0",
     "mocha": "^5.2.0"
