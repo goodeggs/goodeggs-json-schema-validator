@@ -26,7 +26,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-goodeggs": "^7.4.2",
-    "flow-bin": "^0.181.1",
+    "flow-bin": "^0.181.2",
     "goodeggs-test-helpers": "^7.0.0",
     "mocha": "^5.2.0"
   },
