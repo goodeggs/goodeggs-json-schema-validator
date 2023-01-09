@@ -3,7 +3,7 @@ import tv4 from 'tv4';
 import {describe, it} from 'mocha';
 import {expect} from 'goodeggs-test-helpers';
 
-import validator from '../src'; // eslint-disable-line goodeggs/import-default
+import validator from '../src';
 
 describe('formats', function () {
   describe('objectid', function () {
@@ -15,7 +15,10 @@ describe('formats', function () {
     it('throws if invalid', function () {
       const schema = {type: 'string', format: 'objectid'};
       expect(validator.validate('123abc', schema)).not.to.be.ok();
-      expect(validator.error).to.have.property('message', 'Format validation failed (objectid expected)');
+      expect(validator.error).to.have.property(
+        'message',
+        'Format validation failed (objectid expected)',
+      );
     });
 
     describe('null values', function () {
@@ -41,7 +44,10 @@ describe('formats', function () {
     it('throws if invalid', function () {
       const schema = {type: 'string', format: 'date-time'};
       expect(validator.validate('2014-11-11', schema)).not.to.be.ok();
-      expect(validator.error).to.have.property('message', 'Format validation failed (date-time, ISOString format, expected)');
+      expect(validator.error).to.have.property(
+        'message',
+        'Format validation failed (date-time, ISOString format, expected)',
+      );
     });
 
     describe('null values', function () {
@@ -66,7 +72,10 @@ describe('formats', function () {
     it('throws if invalid', function () {
       const schema = {type: 'string', format: 'date'};
       expect(validator.validate('20141111', schema)).not.to.be.ok();
-      expect(validator.error).to.have.property('message', 'Format validation failed (date, YYYY-MM-DD format, expected)');
+      expect(validator.error).to.have.property(
+        'message',
+        'Format validation failed (date, YYYY-MM-DD format, expected)',
+      );
     });
 
     describe('null values', function () {
@@ -136,7 +145,6 @@ describe('formats', function () {
     });
   });
 
-
   describe('email', function () {
     it('validates', function () {
       const schema = {type: 'string', format: 'email'};
@@ -146,7 +154,10 @@ describe('formats', function () {
     it('throws if invalid', function () {
       const schema = {type: 'string', format: 'email'};
       expect(validator.validate('goodeggs.com', schema)).not.to.be.ok();
-      expect(validator.error).to.have.property('message', 'Format validation failed (email expected)');
+      expect(validator.error).to.have.property(
+        'message',
+        'Format validation failed (email expected)',
+      );
     });
 
     describe('null values', function () {
@@ -162,7 +173,6 @@ describe('formats', function () {
     });
   });
 
-
   describe('integer', function () {
     it('validates', function () {
       const schema = {type: 'string', format: 'non-negative-integer'};
@@ -172,7 +182,10 @@ describe('formats', function () {
     it('throws if invalid', function () {
       const schema = {type: 'string', format: 'non-negative-integer'};
       expect(validator.validate('12.5', schema)).not.to.be.ok();
-      expect(validator.error).to.have.property('message', 'Format validation failed (non negative integer expected)');
+      expect(validator.error).to.have.property(
+        'message',
+        'Format validation failed (non negative integer expected)',
+      );
     });
 
     describe('null values', function () {

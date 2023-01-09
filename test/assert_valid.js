@@ -2,24 +2,20 @@
 import {describe, it} from 'mocha';
 import {expect} from 'goodeggs-test-helpers';
 
-import validator from '../src'; // eslint-disable-line goodeggs/import-default
+import validator from '../src';
 
 describe('validator.assertValid()', function () {
   it('throws error if schema invalid', function () {
     const schema = {type: 'string', format: 'objectid'};
-    expect(
-      () => validator.assertValid('123', schema)
-    ).to.throw(
-      'failed schema validation at schema path /format; format validation failed (objectid expected)'
+    expect(() => validator.assertValid('123', schema)).to.throw(
+      'failed schema validation at schema path /format; format validation failed (objectid expected)',
     );
   });
 
   it('bans unknown properties by default', function () {
     const schema = {type: 'object'};
-    expect(
-      () => validator.assertValid({foo: 'bar'}, schema)
-    ).to.throw(
-      'failed schema validation for data path /foo; unknown property (not in schema)'
+    expect(() => validator.assertValid({foo: 'bar'}, schema)).to.throw(
+      'failed schema validation for data path /foo; unknown property (not in schema)',
     );
   });
 
@@ -30,19 +26,15 @@ describe('validator.assertValid()', function () {
 
   it('supports adding a custom error message', function () {
     const schema = {type: 'string', format: 'objectid'};
-    expect(
-      () => validator.assertValid('123', schema, 'request invalid')
-    ).to.throw(
-      'request invalid; failed schema validation at schema path /format; format validation failed (objectid expected)'
+    expect(() => validator.assertValid('123', schema, 'request invalid')).to.throw(
+      'request invalid; failed schema validation at schema path /format; format validation failed (objectid expected)',
     );
   });
 
   it('includes schema title in error if available', function () {
     const schema = {title: 'Product', type: 'string', format: 'objectid'};
-    expect(
-      () => validator.assertValid('123', schema)
-    ).to.throw(
-      'failed "Product" schema validation at schema path /format; format validation failed (objectid expected)'
+    expect(() => validator.assertValid('123', schema)).to.throw(
+      'failed "Product" schema validation at schema path /format; format validation failed (objectid expected)',
     );
   });
 
@@ -81,10 +73,8 @@ describe('validator.assertValid()', function () {
         '^a.*': {type: 'string'},
       },
     };
-    expect(
-      () => validator.assertValid({bcd: 'test'}, schema)
-    ).to.throw(
-      'failed schema validation for data path /bcd; unknown property (not in schema)'
+    expect(() => validator.assertValid({bcd: 'test'}, schema)).to.throw(
+      'failed schema validation for data path /bcd; unknown property (not in schema)',
     );
   });
 

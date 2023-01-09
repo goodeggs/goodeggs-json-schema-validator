@@ -23,9 +23,7 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-flow": "^7.18.6",
     "@babel/register": "^7.18.9",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-goodeggs": "^7.4.2",
+    "@goodeggs/toolkit": "^7.0.1",
     "flow-bin": "^0.198.2",
     "goodeggs-test-helpers": "^8.3.3",
     "mocha": "^5.2.0"
@@ -36,28 +34,11 @@
       "@babel/preset-flow"
     ]
   },
-  "eslintConfig": {
-    "root": true,
-    "parser": "babel-eslint",
-    "plugins": [
-      "goodeggs"
-    ],
-    "extends": [
-      "plugin:goodeggs/goodeggs"
-    ],
-    "rules": {
-      "goodeggs/lodash-prefer-lodash-typecheck": "off",
-      "goodeggs/import-no-commonjs": "off",
-      "no-eq-null": "off"
-    },
-    "env": {
-      "node": true
-    }
-  },
   "scripts": {
     "build": "rm -rf lib && babel src -d lib && cp src/index.js.flow lib",
     "prepublishOnly": "yarn run build",
-    "lint": "eslint 'src/**/*.js'  --ignore-path .gitignore",
+    "lint": "getk run lint-es '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "getk run fix-es --ignore-path .gitignore",
     "test:mocha": "NODE_ENV=test mocha --require @babel/register",
     "test": "yarn run lint && yarn run flow && yarn run test:mocha"
   },
