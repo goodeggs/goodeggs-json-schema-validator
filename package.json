@@ -27,7 +27,7 @@
     "@goodeggs/toolkit": "^7.0.1",
     "@goodeggs/tsconfig": "^2.0.2",
     "goodeggs-test-helpers": "^8.3.3",
-    "mocha": "^5.2.0",
+    "mocha": "6.2.3",
     "typescript": "^4.9.4"
   },
   "scripts": {
@@ -35,9 +35,9 @@
     "build:clean": "rm -rf lib",
     "build:types": "tsc --project tsconfig.declarations.json",
     "prepublishOnly": "yarn run build",
-    "lint": "getk run lint-es '**/*.{js,jsx,ts,tsx}'",
+    "lint": "getk run lint-es '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
     "lint:fix": "getk run fix-es --ignore-path .gitignore",
-    "test:mocha": "NODE_ENV=test mocha --extension ts,js,jsx,tsx --require @babel/polyfill --require babel.register.ts",
+    "test:mocha": "NODE_ENV=test mocha --opts mocha.opts --extension ts,js,jsx,tsx",
     "test": "yarn run lint && yarn run test:mocha",
     "typecheck": "tsc"
   },
