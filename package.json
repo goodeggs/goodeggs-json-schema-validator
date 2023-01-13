@@ -38,7 +38,7 @@
     "lint": "getk run lint-es '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
     "lint:fix": "getk run fix-es --ignore-path .gitignore",
     "test:mocha": "NODE_ENV=test mocha --opts mocha.opts --extension ts,js,jsx,tsx",
-    "test": "yarn run lint && yarn run test:mocha",
+    "test": "yarn run typecheck && yarn run lint && yarn run test:mocha",
     "typecheck": "tsc"
   },
   "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",

@@ -1,16 +1,35 @@
-import tv4 from 'tv4';
+import tv4, {JsonSchema, TV4, ValidationError} from 'tv4';
 import assert from 'assert';
 
-const clonedTv4 = tv4.freshApi();
-const allowNull = (data, schema) =>
-  data === null && (schema.type === 'null' || schema.type.includes('null'));
+interface GoodeggsJsonSchemaValidator extends TV4 {
+  assertValid(
+    data: unknown,
+    schema: JsonSchema,
+    errorMessage?: string,
+    opts?: {banUnknownProperties?: boolean},
+  ): string | undefined;
+}
+
+export interface ValidationErrorExtends extends ValidationError {
+  name?: string;
+  data?: unknown;
+  schema?: JsonSchema;
+}
+
+// @CamillaTeodoro we are adding the assertValid function in the end of the file.
+// At this point Typescript doesn't know that assertValid exists
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const clonedTv4: GoodeggsJsonSchemaValidator = tv4.freshApi();
+
+const allowNull = (data: unknown, schema: JsonSchema): boolean =>
+  data === null && (schema.type === 'null' || schema.type?.includes('null') === true);
 
 clonedTv4.addFormat('objectid', (data, schema) => {
   if (allowNull(data, schema)) return null;
   if (typeof data === 'string' && /^[a-f\d]{24}$/i.test(data)) return null;
   return 'objectid expected';
 });
-
 clonedTv4.addFormat('date-time', (data, schema) => {
   if (allowNull(data, schema)) return null;
   // Source: http://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
@@ -18,19 +37,16 @@ clonedTv4.addFormat('date-time', (data, schema) => {
   if (typeof data === 'string' && dateTimeRegex.test(data)) return null;
   return 'date-time, ISOString format, expected';
 });
-
 clonedTv4.addFormat('date', (data, schema) => {
   if (allowNull(data, schema)) return null;
   if (typeof data === 'string' && /\d{4}-[01]\d-[0-3]\d/.test(data)) return null;
   return 'date, YYYY-MM-DD format, expected';
 });
-
 clonedTv4.addFormat('time', (data, schema) => {
   if (allowNull(data, schema)) return null;
   if (typeof data === 'string' && /^[0-2][0-9]:[0-5][0-9](:[0-5][0-9])?$/.test(data)) return null;
   return 'time, HH:mm:ss or HH:mm format, expected';
 });
-
 clonedTv4.addFormat('email', (data, schema) => {
   if (allowNull(data, schema)) return null;
   // Source: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
@@ -39,7 +55,6 @@ clonedTv4.addFormat('email', (data, schema) => {
   if (typeof data === 'string' && emailRegex.test(data)) return null;
   return 'email expected';
 });
-
 clonedTv4.addFormat('non-negative-integer', (data, schema) => {
   if (allowNull(data, schema)) return null;
   if (typeof data === 'string' && /^[0-9]+$/.test(data)) return null;
@@ -47,32 +62,49 @@ clonedTv4.addFormat('non-negative-integer', (data, schema) => {
 });
 
 clonedTv4.assertValid = function (
-  data,
-  schema,
-  errorMessage,
-  {banUnknownProperties} = {banUnknownProperties: true},
-) {
+  data: unknown,
+  schema: JsonSchema,
+  errorMessage?: string,
+  {
+    banUnknownProperties,
+  }: {
+    banUnknownProperties?: boolean;
+  } = {
+    banUnknownProperties: true,
+  },
+): string | undefined {
   assert(typeof schema === 'object', 'schema must be an object');
   if (errorMessage != null)
     assert(typeof errorMessage === 'string', 'errorMessage must be a string');
-  const {valid, error} = clonedTv4.validateResult(data, schema, null, banUnknownProperties);
+  const {valid, error}: {valid: boolean; error: ValidationErrorExtends} = clonedTv4.validateResult(
+    data,
+    schema,
+    false,
+    banUnknownProperties ?? true,
+  );
+
   if (!valid) {
     const message = (() => {
       let result = '';
       if (errorMessage) result += `${errorMessage}; `;
       result += 'failed';
-      if (schema.title) result += ` "${schema.title}"`;
+      if (schema.title) result += ` "${String(schema.title)}"`;
       result += ' schema validation';
-      if (error.schemaPath.length) result += ` at schema path ${error.schemaPath}`;
-      if (error.dataPath.length) result += ` for data path ${error.dataPath}`;
-      result += `; ${error.message.toLowerCase()}`;
+      if (error.schemaPath) result += ` at schema path ${String(error.schemaPath)}`;
+      if (error.dataPath) result += ` for data path ${String(error.dataPath)}`;
+      result += `; ${String(error.message.toLowerCase())}`;
       return result;
     })();
+
     error.name = 'SchemaValidationError';
     error.message = message;
     error.data = data;
     error.schema = schema;
+    // @CamillaTeodoro this error is from the tv4 library
+    // eslint-disable-next-line @typescript-eslint/no-throw-literal
     throw error;
   }
+  return errorMessage;
 };
+
 export default clonedTv4;
