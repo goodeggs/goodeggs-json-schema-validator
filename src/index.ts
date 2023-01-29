@@ -7,7 +7,7 @@ interface GoodeggsJsonSchemaValidator extends TV4 {
     schema: JsonSchema,
     errorMessage?: string,
     opts?: {banUnknownProperties?: boolean},
-  ): string | undefined;
+  ): void;
 }
 
 export interface ValidationErrorExtends extends ValidationError {
@@ -72,7 +72,7 @@ clonedTv4.assertValid = function (
   } = {
     banUnknownProperties: true,
   },
-): string | undefined {
+): void {
   assert(typeof schema === 'object', 'schema must be an object');
   if (errorMessage != null)
     assert(typeof errorMessage === 'string', 'errorMessage must be a string');
@@ -104,7 +104,6 @@ clonedTv4.assertValid = function (
     // eslint-disable-next-line @typescript-eslint/no-throw-literal
     throw error;
   }
-  return errorMessage;
 };
 
 export default clonedTv4;
