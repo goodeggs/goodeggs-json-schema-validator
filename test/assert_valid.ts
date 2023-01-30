@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import {expect} from 'goodeggs-test-helpers';
 
-import validator, {ValidationErrorExtends} from '../src';
+import validator, {ValidationErrorExtended} from '../src';
 
 describe('validator.assertValid()', function () {
   it('throws error if schema invalid', function () {
@@ -88,7 +88,7 @@ describe('validator.assertValid()', function () {
     try {
       validator.assertValid('123', schema);
     } catch (error) {
-      const err = error as ValidationErrorExtends;
+      const err = error as ValidationErrorExtended;
       expect(err.name).to.equal('SchemaValidationError');
       expect(err.schema).to.deep.equal({
         type: 'string',

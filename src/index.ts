@@ -10,7 +10,7 @@ interface GoodeggsJsonSchemaValidator extends TV4 {
   ): void;
 }
 
-export interface ValidationErrorExtends extends ValidationError {
+export interface ValidationErrorExtended extends ValidationError {
   name?: string;
   data?: unknown;
   schema?: JsonSchema;
@@ -76,7 +76,7 @@ clonedTv4.assertValid = function (
   assert(typeof schema === 'object', 'schema must be an object');
   if (errorMessage != null)
     assert(typeof errorMessage === 'string', 'errorMessage must be a string');
-  const {valid, error}: {valid: boolean; error: ValidationErrorExtends} = clonedTv4.validateResult(
+  const {valid, error}: {valid: boolean; error: ValidationErrorExtended} = clonedTv4.validateResult(
     data,
     schema,
     false,
@@ -92,7 +92,7 @@ clonedTv4.assertValid = function (
       result += ' schema validation';
       if (error.schemaPath) result += ` at schema path ${String(error.schemaPath)}`;
       if (error.dataPath) result += ` for data path ${String(error.dataPath)}`;
-      result += `; ${String(error.message.toLowerCase())}`;
+      result += `; ${String(error.message).toLowerCase()}`;
       return result;
     })();
 
