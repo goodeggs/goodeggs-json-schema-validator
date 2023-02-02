@@ -1,6 +1,6 @@
 {
   "name": "goodeggs-json-schema-validator",
-  "version": "5.3.0",
+  "version": "6.0.0",
   "description": "Good Eggs JSON Schema Validator",
   "author": "Good Eggs <open-source@goodeggs.com>",
   "contributors": [
@@ -20,46 +20,28 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
     "@babel/node": "^7.20.7",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.20.2",
-    "@babel/preset-flow": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@babel/register": "^7.18.9",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-goodeggs": "^7.4.2",
-    "flow-bin": "^0.198.2",
+    "@goodeggs/toolkit": "^7.0.1",
+    "@goodeggs/tsconfig": "^2.0.2",
+    "@types/mocha": "^10.0.1",
+    "@types/tv4": "^1.2.31",
     "goodeggs-test-helpers": "^8.3.3",
-    "mocha": "^5.2.0"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-flow"
-    ]
-  },
-  "eslintConfig": {
-    "root": true,
-    "parser": "babel-eslint",
-    "plugins": [
-      "goodeggs"
-    ],
-    "extends": [
-      "plugin:goodeggs/goodeggs"
-    ],
-    "rules": {
-      "goodeggs/lodash-prefer-lodash-typecheck": "off",
-      "goodeggs/import-no-commonjs": "off",
-      "no-eq-null": "off"
-    },
-    "env": {
-      "node": true
-    }
+    "mocha": "6.2.3",
+    "typescript": "^4.9.4"
   },
   "scripts": {
-    "build": "rm -rf lib && babel src -d lib && cp src/index.js.flow lib",
+    "build": "yarn run build:clean && babel --extensions=.ts,.js,.jsx,.tsx src -d lib && cp src/index.js lib && yarn run build:types",
+    "build:clean": "rm -rf lib",
+    "build:types": "tsc --project tsconfig.declarations.json",
     "prepublishOnly": "yarn run build",
-    "lint": "eslint 'src/**/*.js'  --ignore-path .gitignore",
-    "test:mocha": "NODE_ENV=test mocha --require @babel/register",
-    "test": "yarn run lint && yarn run flow && yarn run test:mocha"
+    "lint": "getk run lint-es '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
+    "lint:fix": "getk run fix-es --ignore-path .gitignore",
+    "test:mocha": "NODE_ENV=test mocha --opts mocha.opts --extension ts,js,jsx,tsx",
+    "test": "yarn run typecheck && yarn run lint && yarn run test:mocha",
+    "typecheck": "tsc"
   },
   "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",
   "bugs": "https://github.com/goodeggs/goodeggs-json-schema-validator/issues",

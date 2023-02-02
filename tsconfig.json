@@ -1,0 +1,13 @@
+{
+  "extends": "@goodeggs/tsconfig/base",
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "strict": true
+  },
+  "exclude": ["node_modules/**/*", "lib"]
+}
