@@ -1,0 +1,28 @@
+plugin-node-cache: &plugin-node-cache
+  cache_node: true
+
+plugin-secrets: &plugin-secrets
+  secrets:
+    NPM_TOKEN: ENCRYPTED_SECRET_STRING
+
+plugins: &plugins
+  - ssh://git@github.com/goodeggs/goodeggs-core-buildkite-plugin#v0.1.1: *plugin-node-cache
+  - ssh://git@github.com/goodeggs/goodeggs-core-buildkite-plugin#v0.1.1: *plugin-secrets
+
+steps:
+  - label: 'Install'
+    command: NODE_ENV=development yarn install --frozen-lockfile
+    plugins: *plugins
+  - wait
+  - label: 'Test'
+    command: yarn test
+    plugins: *plugins
+  - wait
+  - label: 'Publish'
+    if: build.tag != null
+    command:
+      - export PATH="/tmp/ci-tools:./node_modules/.bin:$PATH"
+      - yarn publish
+    concurrency: 1
+    concurrency_group: 'goodeggs-json-schema-validator/publish'
+    plugins: *plugins
