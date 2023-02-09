@@ -3,7 +3,7 @@ plugin-node-cache: &plugin-node-cache
 
 plugin-secrets: &plugin-secrets
   secrets:
-    NPM_TOKEN: ENCRYPTED_SECRET_STRING
+    NPM_TOKEN: vLVSsOFBFmk/_hD_Keyzv56PaGwq11j6oQ/feHGOYCvOyXfWzX9qR94eLTC0yTMyspx-4YGk1DlA4zzYklb
 
 plugins: &plugins
   - ssh://git@github.com/goodeggs/goodeggs-core-buildkite-plugin#v0.1.1: *plugin-node-cache
