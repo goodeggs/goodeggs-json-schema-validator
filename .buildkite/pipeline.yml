@@ -21,7 +21,7 @@ steps:
   - label: 'Publish'
     if: build.tag != null
     command:
-      - export PATH="/tmp/ci-tools:./node_modules/.bin:$PATH"
+      - export PATH="./node_modules/.bin:$PATH"
       - yarn publish
     concurrency: 1
     concurrency_group: 'goodeggs-json-schema-validator/publish'
