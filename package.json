@@ -33,7 +33,7 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "build": "yarn run build:clean && babel --extensions=.ts,.js,.jsx,.tsx src -d lib && cp src/index.js lib && yarn run build:types",
+    "build": "yarn run build:clean && babel --extensions=.ts,.js,.jsx,.tsx src -d lib && yarn run build:types",
     "build:clean": "rm -rf lib",
     "build:types": "tsc --project tsconfig.declarations.json",
     "prepublishOnly": "yarn run build",
