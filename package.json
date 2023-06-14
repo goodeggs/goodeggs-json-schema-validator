@@ -46,6 +46,7 @@
   "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",
   "bugs": "https://github.com/goodeggs/goodeggs-json-schema-validator/issues",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
