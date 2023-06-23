@@ -1,6 +1,6 @@
 {
   "name": "goodeggs-json-schema-validator",
-  "version": "6.0.1",
+  "version": "6.0.6",
   "description": "Good Eggs JSON Schema Validator",
   "author": "Good Eggs <open-source@goodeggs.com>",
   "contributors": [
@@ -33,7 +33,7 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "build": "yarn run build:clean && babel --extensions=.ts,.js,.jsx,.tsx src -d lib && cp src/index.js lib && yarn run build:types",
+    "build": "yarn run build:clean && babel --extensions=.ts,.js,.jsx,.tsx src -d lib && yarn run build:types",
     "build:clean": "rm -rf lib",
     "build:types": "tsc --project tsconfig.declarations.json",
     "prepublishOnly": "yarn run build",
@@ -46,6 +46,7 @@
   "homepage": "https://github.com/goodeggs/goodeggs-json-schema-validator",
   "bugs": "https://github.com/goodeggs/goodeggs-json-schema-validator/issues",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
