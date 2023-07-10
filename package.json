@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-typescript": "^7.21.5",
     "@babel/register": "^7.21.0",
-    "@goodeggs/toolkit": "^7.0.1",
+    "@goodeggs/toolkit": "^8.0.0",
     "@goodeggs/tsconfig": "^2.0.2",
     "@types/mocha": "^10.0.1",
     "@types/tv4": "^1.2.31",
