@@ -1813,9 +1813,10 @@
   version "8.1.2"
   resolved "https://registry.npmjs.org/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-8.1.2.tgz"
 
-"@types/tv4@^1.2.31":
-  version "1.2.31"
-  resolved "https://registry.yarnpkg.com/@types/tv4/-/tv4-1.2.31.tgz#b33f3e6f082782a90f1fc5f414ad8722db8c9baa"
+"@types/tv4@^1.2.33":
+  version "1.2.33"
+  resolved "https://registry.yarnpkg.com/@types/tv4/-/tv4-1.2.33.tgz#f6ac0f85cabffde144a16bf7ef8c043e89d1854a"
+  integrity sha512-7phCVTXC6Bj50IV1iKOwqGkR4JONJyMbRZnKTSuujv1S/tO9rG5OdCt7BMSjytO+zJmYdn1/I4fd3SH0gtO99g==
 
 "@typescript-eslint/eslint-plugin@^5.39.0":
   version "5.48.0"
